@@ -26,4 +26,3 @@ RUN yum update -y -x kernel && \
 
 # RUN rm -f /etc/localtime && ln -s /usr/share/zoneinfo/UTC /etc/localtime
 VOLUME /var/log
-CMD ["/start.sh"]
