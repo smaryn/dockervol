@@ -17,6 +17,7 @@ RUN yum update -y -x kernel && \
         httpd \
         mc \
         net-tools \
+        nfs-utils \
         ntp \
         openssh-server \
         openssh-clients \
