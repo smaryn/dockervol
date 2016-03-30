@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 1.1.0
+# version 1.1.1
 
 LOGFILE="/var/log/start_sh.log"
 TAILCMD="$( which tail )"
@@ -30,8 +30,8 @@ main() {
   # Make sure we're not confused by old, incompletely-shutdown httpd
   # context after restarting the container.  httpd won't start correctly
   # if it thinks it is already running.
-  rm -rf /run/httpd/* /tmp/httpd* | tee -a $LOGFILE
-  sleep 45
+  rm -rf /run/httpd/* /tmp/httpd*
+  # start_httpd
 
    while true; do
      sleep 3
