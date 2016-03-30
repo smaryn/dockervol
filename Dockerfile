@@ -1,11 +1,11 @@
 FROM centos:centos6
-LABEL version="1.1.0"
+LABEL version="1.1.1"
 
 ENV TERM xterm
 
-# Any file with the "repo" extension will be added to /etc/yum.repos.d folder
-# COPY *.repo /etc/yum.repos.d/
-
+# Simple startup script to avoid some issues observed with container restart
+# RUN yum -y update -x kernel; yum clean all
+# RUN yum -y install httpd; yum clean all
 RUN yum update -y -x kernel && \
     yum install -y \
         epel-release && \
@@ -13,6 +13,7 @@ RUN yum update -y -x kernel && \
         bind-utils \
         curl \
         git \
+        httpd \
         mc \
         net-tools \
         ntp \
@@ -24,5 +25,12 @@ RUN yum update -y -x kernel && \
         vim \
         wget
 
+RUN echo "Apache HTTPD" >> /var/www/html/index.html
+
+EXPOSE 80
+
 # RUN rm -f /etc/localtime && ln -s /usr/share/zoneinfo/UTC /etc/localtime
+
+RUN service httpd start
+
 VOLUME /var/log
