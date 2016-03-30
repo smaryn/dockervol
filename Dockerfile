@@ -37,5 +37,5 @@ EXPOSE 80
 # Simple startup script to avoid some issues observed with container restart
 COPY run.sh /run.sh
 RUN chmod -v +x /run.sh
-VOLUME /var/log
+# VOLUME /var/log
 CMD ["/run.sh"]
