@@ -1,5 +1,5 @@
 FROM ubuntu:14.04
-LABEL version="2.2"
+LABEL version="2.3"
 
 # Install.
 RUN \
@@ -14,15 +14,15 @@ RUN \
 
 # Add files.
 #COPY .bashrc /root/.bashrc
-COPY run.sh /run.sh
-RUN chmod -v +x /run.sh
+#COPY run.sh /run.sh
+#RUN chmod -v +x /run.sh
 
 # Set environment variables.
 # ENV HOME /root
 ENV TERM xterm
 
 # Define working directory.
-#WORKDIR /root
+#WORKDIR /
 
 # Set default web page
 RUN echo "Apache HTTPD" >> /var/www/html/index.html
