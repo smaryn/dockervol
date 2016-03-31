@@ -1,5 +1,5 @@
 FROM ubuntu:14.04
-LABEL version="2.0"
+LABEL version="2.1"
 
 # Install.
 RUN \
