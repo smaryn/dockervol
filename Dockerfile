@@ -1,5 +1,5 @@
 FROM ubuntu:14.04
-LABEL version="2.1"
+LABEL version="2.2"
 
 # Install.
 RUN \
@@ -22,7 +22,7 @@ RUN chmod -v +x /run.sh
 ENV TERM xterm
 
 # Define working directory.
-WORKDIR /root
+#WORKDIR /root
 
 # Set default web page
 RUN echo "Apache HTTPD" >> /var/www/html/index.html
@@ -33,5 +33,5 @@ EXPOSE 80
 # VOLUME /var/log
 
 # Define default command.
-CMD ["/run.sh"]
-#CMD ["bash"]
+#CMD ["/run.sh"]
+CMD ["bash"]
