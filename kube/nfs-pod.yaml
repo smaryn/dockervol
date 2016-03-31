@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nfs-pod
+  labels:
+    name: nfs-pod
+spec:
+  volumes:
+    - name: nfsvol
+      nfs:
+          # Use real NFS server address here.
+          server: 198.18.11.3
+          # Use real NFS server export directory.
+          path: "/export/nfsvol"
+          readOnly: false
+  containers:
+    - name: nfscont
+      image: singen/dockervol
+      ports:
+        - containerPort: 80
+          name: "dockervol-httpd"
+          protocol: TCP
+
+      volumeMounts:
+        # 'name' must match the volume name below.
+        - name: nfsvol
+          # Where to mount the volume.
+          mountPath: "/mnt"

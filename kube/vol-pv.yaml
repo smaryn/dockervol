@@ -1,13 +1,13 @@
+kind: PersistentVolume
 apiVersion: v1
-  kind: PersistentVolume
-  metadata:
-    name: pv01
-  spec:
-    capacity:
-      storage: 5Gi
-    accessModes:
-      - ReadWriteMany
-    persistentVolumeReclaimPolicy: Retain
-    nfs:
-      path: /var/data/pvs/pv01
-      server: 198.18.11.3
+metadata:
+  name: pv01
+spec:
+  capacity:
+    storage: 5Gi
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  nfs:
+    path: /var/data/pvs/pv01
+    server: 198.18.11.3
