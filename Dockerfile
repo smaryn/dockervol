@@ -8,7 +8,8 @@ RUN \
   apt-get -y upgrade && \
   apt-get install -y build-essential && \
   apt-get install -y software-properties-common && \
-  apt-get install -y apache2 byobu curl htop man nfs-common unzip vim wget && \
+  apt-get install -y byobu curl htop man unzip vim wget && \
+  apt-get install -y apache2 mc nfs-common && \
   rm -rf /var/lib/apt/lists/*
 
 # Add files.
