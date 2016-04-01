@@ -1,5 +1,5 @@
 FROM ubuntu:14.04
-LABEL version="2.3"
+LABEL version="2.4"
 
 # Install.
 RUN \
@@ -14,8 +14,8 @@ RUN \
 
 # Add files.
 #COPY .bashrc /root/.bashrc
-#COPY run.sh /run.sh
-#RUN chmod -v +x /run.sh
+COPY run.sh /run.sh
+RUN chmod -v +x /run.sh
 
 # Set environment variables.
 # ENV HOME /root
@@ -33,5 +33,5 @@ EXPOSE 80
 # VOLUME /var/log
 
 # Define default command.
-#CMD ["/run.sh"]
-CMD ["bash"]
+CMD ["/run.sh"]
+#CMD ["bash"]
