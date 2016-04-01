@@ -1,0 +1,65 @@
+macsam@sam:> kubectl get pod nfsvol -o=yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: 2016-04-01T12:23:32Z
+  labels:
+    name: nfsvol
+  name: nfsvol
+  namespace: default
+  resourceVersion: "548607"
+  selfLink: /api/v1/namespaces/default/pods/nfsvol
+  uid: 8cc14587-f804-11e5-8915-a0d3c163397d
+spec:
+  containers:
+  - image: singen/dockervol
+    imagePullPolicy: Always
+    name: nfsvol
+    ports:
+    - containerPort: 80
+      name: dockervol-httpd
+      protocol: TCP
+    resources: {}
+    terminationMessagePath: /dev/termination-log
+    volumeMounts:
+    - mountPath: /mnt
+      name: nfsvol
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: default-token-4nqc8
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  nodeName: 198.18.8.161
+  restartPolicy: Always
+  securityContext: {}
+  serviceAccount: default
+  serviceAccountName: default
+  terminationGracePeriodSeconds: 30
+  volumes:
+  - name: nfsvol
+    nfs:
+      path: /export/nfsvol
+      server: 198.18.11.3
+  - name: default-token-4nqc8
+    secret:
+      secretName: default-token-4nqc8
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: null
+    status: "True"
+    type: Ready
+  containerStatuses:
+  - containerID: docker://b795f1a901eade0ef9d5593338db0732a828470efd40b66793aa1d475fdf8d25
+    image: singen/dockervol
+    imageID: docker://sha256:df28e9b496ddae3d0322fdf23b92427f2cbbfaa02b8e089af870136de925a3d4
+    lastState: {}
+    name: nfsvol
+    ready: true
+    restartCount: 0
+    state:
+      running:
+        startedAt: 2016-04-01T12:24:20Z
+  hostIP: 198.18.8.161
+  phase: Running
+  podIP: 172.16.45.3
+  startTime: 2016-04-01T12:23:33Z
