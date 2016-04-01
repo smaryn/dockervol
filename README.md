@@ -12,7 +12,7 @@ Familiarity with [volumes](http://kubernetes.io/docs/user-guide/volumes/) is sug
 ###### Variables in the text:
 - nfs-server-IP=198.18.11.3
 - nfs-persistent-volume-name=nfsvol
-----
+
 #### 1. Prepare NFS infrastructure
 ##### NFS server
 ###### Nodes assigned as NFS storage providers must have nfs-kernel-server installed:
