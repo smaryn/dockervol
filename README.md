@@ -118,7 +118,7 @@ sudo docker exec -it $(sudo docker ps | grep dockervol | awk '{print $1}') bash
 ```bash
 mount | grep nfs
 ```
-Everything is fine if this command output looks like:
+Everything is fine if this command's output looks like:
 ```
 198.18.11.3:/export/nfsvol on /mnt type nfs4 (rw,relatime,vers=4.0,rsize=1048576,wsize=1048576,namlen=255,hard,proto=tcp,port=0,timeo=600,retrans=2,sec=sys,clientaddr=198.18.8.161,local_lock=none,addr=198.18.11.3)
 ```
@@ -126,8 +126,8 @@ Everything is fine if this command output looks like:
 Additionally you may cd to /mnt folder and test read and write capabilities:
 ```bash
 cd /mnt
-touch some.tex
-echo '1234567890' > some.tex
-cat some.tex
+touch some.txt
+echo '1234567890' > some.txt
+cat some.txt
 rm -f some.txt
 ```
