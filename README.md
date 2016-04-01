@@ -10,8 +10,8 @@ Familiarity with [volumes](http://kubernetes.io/docs/user-guide/volumes/) is sug
 
 ----
 ###### Variables in the text:
-nfs-server-IP=198.18.11.3<br/>
-nfs-persistent-volume-name=nfsvol
+- nfs-server-IP=198.18.11.3
+- nfs-persistent-volume-name=nfsvol
 ----
 #### 1. Prepare NFS infrastructure
 ##### NFS server
